@@ -21,7 +21,6 @@ function getRightChild(i){
 }
 
 function swap(index1, index2) {
-    console.log("index to swap", index1, index2)
     let temp = tree[index1]
     tree[index1] = tree[index2]
     tree[index2] = temp
@@ -55,18 +54,11 @@ function heapifyDown(){
         if(getRightChild(indexToHeapifyDown) && tree[getRightChild(indexToHeapifyDown)] < tree[getLeftChild(indexToHeapifyDown)]){
             smallerIndex = getRightChild(indexToHeapifyDown)
         }
-
-        console.log("smaller index ", smallerIndex)
-        console.log("tree[smallerIndex]", tree[smallerIndex])
-        console.log("tree[indexToHeapifyDown]", tree[indexToHeapifyDown])
         
-        if(tree[smallerIndex] > tree[indexToHeapifyDown]){
+        if(smallerIndex > tree.length - 1  || tree[smallerIndex] > tree[indexToHeapifyDown]){
             break
         } else if(tree[smallerIndex] < tree[indexToHeapifyDown]) {
             swap(smallerIndex, indexToHeapifyDown)
-        }
-        else {
-            break
         }
         indexToHeapifyDown = smallerIndex
     }
