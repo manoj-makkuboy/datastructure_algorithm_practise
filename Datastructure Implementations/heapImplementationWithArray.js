@@ -1,6 +1,6 @@
 let tree = []
 
-tree = [10, 15, 20, 17]
+tree = [10, 15, 20, 17, 19, 25, 21]
 
 function getParent(i) {
     let equation = Math.ceil((i-1) /2)
@@ -46,7 +46,49 @@ function add(elementToAdd) {
     heapifyUp()
 }
 
+function heapifyDown(){
+    let rootNode = 0
+    let indexToHeapifyDown = rootNode
+
+    while(getLeftChild(indexToHeapifyDown)){
+        let smallerIndex = getLeftChild(indexToHeapifyDown) // assuming the left would be the smaller index
+        if(getRightChild(indexToHeapifyDown) && tree[getRightChild(indexToHeapifyDown)] < tree[getLeftChild(indexToHeapifyDown)]){
+            smallerIndex = getRightChild(indexToHeapifyDown)
+        }
+
+        console.log("smaller index ", smallerIndex)
+        console.log("tree[smallerIndex]", tree[smallerIndex])
+        console.log("tree[indexToHeapifyDown]", tree[indexToHeapifyDown])
+        
+        if(tree[smallerIndex] > tree[indexToHeapifyDown]){
+            break
+        } else if(tree[smallerIndex] < tree[indexToHeapifyDown]) {
+            swap(smallerIndex, indexToHeapifyDown)
+        }
+        else {
+            break
+        }
+        indexToHeapifyDown = smallerIndex
+    }
+
+}
+
+function removeRootElement() {
+    let rootNode = 0
+    let elementToRemove = rootNode
+    elementToRemove.shift
+
+    let lastElementIndex = tree.length - 1
+    swap(lastElementIndex, elementToRemove)
+    heapifyDown()
+
+}
+
+
+
+
 console.log("original tree", tree)
-add(8)
+// add(8)
+removeRootElement()
 console.log("tree after operation", tree)
 
