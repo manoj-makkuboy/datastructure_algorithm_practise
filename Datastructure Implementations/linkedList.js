@@ -36,7 +36,7 @@ class LinkedList {
     }
 
     reverse() {
-        let prev = null
+        let prev = null  // the new previous would be null
         let current = this.head
         let next
         while(current !== null){
@@ -45,7 +45,7 @@ class LinkedList {
             prev = current
             current = next
         }
-        this.head = prev
+        this.head = prev // resetting the head
     }
 
 
