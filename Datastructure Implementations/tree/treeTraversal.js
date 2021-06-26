@@ -14,7 +14,7 @@ console.log("BST => ", JSON.stringify(bst, null, 2))
 
 console.log(bst.rootNode)
 
-function breathFirstTraversal(bst) {
+function breathFirstSearch(bst) {
     let q = []
     let visited = []
 
@@ -33,7 +33,7 @@ function breathFirstTraversal(bst) {
         visited.push(current)
     }
 
-    console.log("BFT => ", visited.map((node) => node.data))
+    console.log("BFS => ", visited.map((node) => node.data))
 }
 
-breathFirstTraversal(bst)
+breathFirstSearch(bst)
