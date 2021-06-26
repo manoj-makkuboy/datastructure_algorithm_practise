@@ -47,6 +47,26 @@ class BST {
             }
         }
     }
+
+    isPresent(valueToFind) {
+        let traversalNode = this.rootNode
+
+        while(true){
+            if(traversalNode === null)
+                return false 
+
+            if(traversalNode.data === valueToFind){
+                return true
+            }
+            if(valueToFind < traversalNode.data) {
+                traversalNode = traversalNode.left
+                continue
+            }else if(valueToFind > traversalNode.data) {
+                traversalNode = traversalNode.right
+                continue
+            }
+        }
+    }
 }
 
 let bst = new BST()
@@ -59,4 +79,8 @@ bst.addNode(4)
 
 
 
+
+
 console.log("bst", bst.rootNode)
+
+console.log("value found = ", bst.isPresent(1))
