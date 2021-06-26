@@ -69,18 +69,15 @@ class BST {
     }
 }
 
-let bst = new BST()
-bst.addNode(5)
-bst.addNode(3)
-bst.addNode(1)
-bst.addNode(2)
-bst.addNode(4)
+// let bst = new BST()
+// bst.addNode(5)
+// bst.addNode(3)
+// bst.addNode(1)
+// bst.addNode(2)
+// bst.addNode(4)
 
+// console.log("bst", bst.rootNode)
 
+// console.log("value found = ", bst.isPresent(1))
 
-
-
-
-console.log("bst", bst.rootNode)
-
-console.log("value found = ", bst.isPresent(1))
+exports.BST = BST
